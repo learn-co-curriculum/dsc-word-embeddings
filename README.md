@@ -15,14 +15,14 @@ You will be able to:
 
 ## What Are Word Embeddings?
 
-**_Word Embeddings_** are a type of vectorization strategy that computes word vectors from a text corpus by training a neural network, which results in a high-dimensional embedding space, where each word is in the corpus is a unique vector in that space. In this embedding space, the position of the vector relative to the other vectors captures semantic meaning. This method of creating disributed representations of words in a high-dimensional embedding space was first introduced in a landmark paper from members of the Google Brain team in 2013 at the Neural Information Processing Systems (NeurIPS, for short). You can read the full paper from Mikolov et al by following [this link](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf).
+**_Word Embeddings_** are a type of vectorization strategy that computes word vectors from a text corpus by training a neural network, which results in a high-dimensional embedding space, where each word is in the corpus is a unique vector in that space. In this embedding space, the position of the vector relative to the other vectors captures semantic meaning. This method of creating distributed representations of words in a high-dimensional embedding space was first introduced in a landmark paper from members of the Google Brain team in 2013 at the Neural Information Processing Systems (NeurIPS, for short). You can read the full paper from Mikolov et al by following [this link](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf).
 
 ### Capturing Semantic Relationships
 
 
 So far, the vectorization strategies you've learned have focused only on how often a word appears in a given text, but they don't focus at all on capturing the semantic meaning. This is one area where using the Word2Vec model to create **_Word Vector Embeddings_** really shines, because it will capture those semantic relationships between words&mdash;for instance, a Word2Vec model that is given enough data and training will learn that there is a semantic relationship between the word 'person' and 'people'&mdash;furthermore, vector one would need to travel to get from the singular 'person' to the plural 'people' will be the same vector that will get you from the singular version of a word to it's plural&mdash;meaning that our model will 'learn' how to model the relationship between singular and plural versions of the same word.  Take a look at the examples below:
 
-<img src='word-vectors.png'>
+<img src='images/embeddings.png'>
 
 As you can see in the diagram above, the embedding space shows that the model has positioned the words 'king' and 'queen' in the same relationship that the vector 'man' has to 'woman'. The vector that gets you from 'king' to 'queen' or from 'man' to 'woman' is the vector for gender!  you can see other examples show that the model also learns representations for verb tense, or even for countries and their capitals. This is more impressive when you realize that the model learns these relationships from reading a large enough corpus of text, without being given an explicit direction or instruction&mdash;that is, the researchers did not expressly feed the model sentences like "Madrid is the capital of Spain".  
 
@@ -38,7 +38,7 @@ Vectors created through Word Embeddings are different&mdash;the size of the vect
 
 Let's look at a toy example. Consider the diagram below. First, pay attention to what each of the columns mean. Let's assume that you built a model to 'rate' each of the animals across each of these 4 categories, relative to one another.  
 
-<img src='example_vectors.png'>
+<img src='images/vectors.png' width="800">
 
 In this embedding space, the vectorized representation of the word dog would be `[-0.4, 0.37, 0.02, -0.34]`. As you'll see when you study the actual Word2Vec model, you can use some nifty tricks to train a neural network to act as a sort of 'lookup table', where you can get the vector out for any given word. In the next lesson, you'll spend a bit more time understanding exactly how the model learns the correct values for each word. 
 
